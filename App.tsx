@@ -24,8 +24,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Index from './src';
-
+import Index from './src/Index';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -69,7 +70,10 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-     <Index/>
+      <Provider store={store}>
+      <Index/>
+      </Provider>
+    
     </SafeAreaView>
   );
 }
