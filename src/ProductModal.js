@@ -34,8 +34,8 @@ const ProductModal = ({visible, onClose, product}) => {
         <View style={styles.modalContent}>
           <Image source={{uri: product?.image}} style={styles.productImage} />
           <View style={{flexDirection: 'row', width: '100%'}}>
-            <Text style={{fontSize: 16, marginVertical: 20}}>
-              description:
+            <Text style={{fontSize: 16, marginVertical: 20,color: 'black',}}>
+              description:{'  '}
             </Text>
             <Text style={styles.productDescription}>
               {product?.description}
@@ -45,11 +45,11 @@ const ProductModal = ({visible, onClose, product}) => {
             {cartItem ? (
               <View style={styles.quantityContainer}>
                 <TouchableOpacity onPress={handleDecrement}>
-                  <Icon name="minus" size={20} color="black" />
+                  <Icon name="minus" size={15} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.quantityText}>{cartItem.quantity}</Text>
                 <TouchableOpacity onPress={handleIncrement}>
-                  <Icon name="plus" size={20} color="black" />
+                  <Icon name="plus" size={15} color="black" />
                 </TouchableOpacity>
               </View>
             ) : (
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 20,
     width: '70%',
+    color: 'black',
   },
   addToCartButton: {
     flexDirection: 'row',
@@ -108,10 +109,14 @@ const styles = StyleSheet.create({
   quantityContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor:"lightgrey",
+    paddingHorizontal:20,
+    borderRadius:10
   },
   quantityText: {
     marginHorizontal: 10,
     fontSize: 20,
+    color: 'black',
   },
   closeButton: {
     flexDirection: 'row',

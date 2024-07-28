@@ -2,10 +2,10 @@ import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Provider, useSelector, useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import ProductModal from './ProductModal';
-import {store} from './store';
-import {addToCart, incrementQuantity, decrementQuantity} from './cartSlice';
+
+import { incrementQuantity, decrementQuantity} from './cartSlice';
 
 const Index = () => {
   const [data, setData] = useState([]);
@@ -54,8 +54,8 @@ const Index = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <View>
+    
+      <View style={{backgroundColor:"white"}}>
         <ScrollView>
           <View
             style={{
@@ -108,7 +108,7 @@ const Index = () => {
                       <View
                         style={{flexDirection: 'row', alignItems: 'center'}}>
                         {renderStars(item?.rating?.rate)}
-                        <Text style={{marginLeft: 10, fontSize: 17}}>
+                        <Text style={{marginLeft: 10, fontSize: 17,color: 'black',}}>
                           {item?.rating?.count}
                         </Text>
                       </View>
@@ -172,7 +172,7 @@ const Index = () => {
           />
         )}
       </View>
-    </Provider>
+    
   );
 };
 
